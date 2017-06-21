@@ -1,2 +1,4 @@
 Check out this simple intro to neural nets
 http://iamtrask.github.io/2015/07/27/python-network-part2/
+How to make a facebook messenger bot with python flask
+https://blog.hartleybrody.com/fb-messenger-bot/
