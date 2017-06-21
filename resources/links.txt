@@ -1,2 +1,2 @@
 Check out this simple intro to neural nets
-http://iamtrask.github.io/page2/
+http://iamtrask.github.io/2015/07/27/python-network-part2/
