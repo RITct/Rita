@@ -110,9 +110,8 @@ def training(n_iters, training_data, save_model = False):
            #top_v,top_i=output.data.topk(1)
             k = 0
             output_index = output.data.numpy()[0]
-            #output=output.data.numpy()
-            #print(top_i)
-            #output_index = top_i[0][0]  # converting output tensor to integer
+            
+            # converting output tensor to integer
             out_index = category_tensor.data.numpy()  # converting tensor datatype to integer
             accuracy = 100-(loss*100)
             if accuracy < 0:
