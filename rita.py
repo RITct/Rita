@@ -1,8 +1,7 @@
+
 import json
 from flask import Flask, request
 from secret_sauce.models import predict_action
-
-
 app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
