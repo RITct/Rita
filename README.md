@@ -12,3 +12,4 @@ git clone https://github.com/RITct/Rita.git
 * [pytorch](pytorch.org)
 * [flask](flask.pocoo.org)
 
+## See you on Ritu :heart:
