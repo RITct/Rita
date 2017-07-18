@@ -1,8 +1,8 @@
 import json
-#importing functions for training and predicting the model
 from secret_sauce.models import training, predict_action
-#importing torch
+#importing functions for training and predicting the model
 import torch.nn as nn
+#importing torch
 from torch.autograd import Variable
 import torch
 
