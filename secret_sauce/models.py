@@ -69,7 +69,7 @@ def randomtrainingexample(training_data,all_categories,all_words):
     return sentence, category_tensor, line_tensor
 
 
-#ann = ANN(input_size, hidden_size, output_size)  # will initialize the computation graph
+
 
 
 def train(output, input, ann,learning_rate=.005):
