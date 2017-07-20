@@ -94,8 +94,13 @@ Its a neural network model that will translate the question to answer like this.
 
 SeqtoSeq model in pytorch can be implemented like [this](http://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html#sphx-glr-intermediate-seq2seq-translation-tutorial-py).
 # Tasks
-1. Make a list of actions to be performed by Rita.Create dataset for those actions. See the [intent recogniser](https://github.com/GopikrishnanSasikumar/Text_Classifier-pytorch) tutorial for how to do that.
-
+1. Make a list of actions to be performed by Rita.Create dataset for those actions inside action_dataset.json in the form like this,
+```
+"intent": "website","sentence": "open college website"
+"intent":"website", "sentence":"show me RIT website"
+"intent":"website", "sentence":"give me more information"
+"intent":"website", "sentence":"tell me more about RIT"
+```
 2. Implement seqtoseq model. This need large dataset of question-answers. Plan is to deploy the bot with action recognition model and collect the questions people ask for making seqtoseq dataset.      
    
 3. Make an interface to test the bot locally. That code goes here.
