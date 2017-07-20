@@ -8,10 +8,16 @@ git clone https://github.com/RITct/Rita.git
 ```
 
 # You need 
-* [python](www.python.org)
-* [pytorch](pytorch.org)
-* [flask](flask.pocoo.org)
-
+* [Python](www.python.org)
+* [PyTorch](pytorch.org)
+* [Flask](flask.pocoo.org)
+* [Requests](http://docs.python-requests.org/en/master/)
+# How to run
+The web app should be deployed to the server for running it in fb messenger app.
+A local interface can be run after implementing it(see task 3) like this
+```
+python rita.py
+```
 # Working
 Currently building Rita as a facebook messenger bot in [python](www.python.org) [flask](flask.pocoo.org) based on this tutorial,
 ```
@@ -48,7 +54,7 @@ This message is processed and reply is generated using neural networks.
 ```
 reply = process_msg(message_text)
 ```
-This is how things work inside,
+This is how things work inside process_msg(),
 ```
 def process_msg(message_text):
     intent = predict_action(str(message_text))
@@ -58,7 +64,9 @@ def process_msg(message_text):
         pass #return seqtoseq model output for normal chat to be implemented
     return "hello"
 ```
-The predict_action() function output an intent or "none" if no intent recognised. If intent is found then action is executed from dsl.py and a reply is returned. If predict_action() return "none", seqtoseq model return the reply. 
+The predict_action() function output an action to be performed or "none" if no intent recognised. If intent is found then action is executed from dsl.py and a reply is returned. If predict_action() return "none", that means its a normal conversation like 
+"hello how are you ?"
+Another model called seqtoseq will generate a reply for the question. 
 
 We use two neural network models in Rita
 ## 1. Intent Recognition model
@@ -71,6 +79,10 @@ This is an example tutorial for how to build an [intent recogniser](https://gith
 The dataset used to train this model is stored in
 ```
 action_dataset.json
+```
+The intent recognition model can be trained by running
+```
+python action_train.py
 ```
 Note:whats inside it now is just stupid. See the task 1    
 ## 2. SeqtoSeq model
