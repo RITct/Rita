@@ -55,12 +55,14 @@ reply = process_msg(message_text)
 This is how things work inside process_msg(),
 ```
 def process_msg(message_text):
-    intent = predict_action(str(message_text))
-    if intent != "none":
-        pass #return reply from dsl.py
-    else:
-        pass #return seqtoseq model output for normal chat to be implemented
-    return "hello"
+    intent = predict_action(str(message_text)) #predicting action
+    if intent != "none": #if the message is a command
+        #actions to be implemented in dsl.py
+        return "reply from dsl.py"    
+    else: #if the message is just chitchat
+        #seqtoseq model for normal chat to be implemented
+        return "reply from seqtoseq model"
+
 ```
 The predict_action() function output an action to be performed or "none" if no intent recognised. If intent is found then action is executed from dsl.py and a reply is returned. If predict_action() return "none", that means its a normal conversation like 
 "hello how are you ?"
