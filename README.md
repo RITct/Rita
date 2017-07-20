@@ -48,18 +48,52 @@ This message is processed and reply is generated using neural networks.
 ```
 reply = process_msg(message_text)
 ```
+This is how things work inside,
+```
+def process_msg(message_text):
+    intent = predict_action(str(message_text))
+    if intent != "none":
+        pass #return reply from dsl.py
+    else:
+        pass #return seqtoseq model output for normal chat to be implemented
+    return "hello"
+```
+The predict_action() function output an intent or "none" if no intent recognised. If intent is found then action is executed from dsl.py and a reply is returned. If predict_action() return "none", seqtoseq model return the reply. 
+
 We use two neural network models in Rita
 ## 1. Intent Recognition model
-Which will predict the action to be done by the bot from the message.
-For example say "tell me about RIT", for this question bot may reply with link to RIT website.
 ```
 intent = predict_action(str(message_text))
 ```
+Which will predict the action to be done by the bot from the message.
+For example say "tell me about RIT", for this question bot may reply with link to RIT website.
+This is an example tutorial for how to build an [intent recogniser](https://github.com/GopikrishnanSasikumar/Text_Classifier-pytorch).
+The dataset used to train this model is stored in
+```
+action_dataset.json
+```
+Note:whats inside it now is just stupid. See the task 1    
 ## 2. SeqtoSeq model
-This model is used for implementing normal conversations.
+This model is used for implementing normal conversations for questions like 
+"hello how are you ?"
 Its a neural network model that will translate the question to answer like this.
 ![alt text](https://camo.githubusercontent.com/242210d7d0151cae91107ee63bff364a860db5dd/687474703a2f2f6936342e74696e797069632e636f6d2f333031333674652e706e67)
 
+SeqtoSeq model in pytorch can be implemented like [this](http://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html#sphx-glr-intermediate-seq2seq-translation-tutorial-py).
+# Task
+1. Make a list of actions to be performed by Rita.Create dataset for those actions. See the [intent recogniser](https://github.com/GopikrishnanSasikumar/Text_Classifier-pytorch) tutorial for how to do that.
+
+2. Implement seqtoseq model. This need large dataset of question-answers. Plan is to deploy the bot with action recognition model and collect the questions people ask for making seqtoseq dataset.      
+   
+3. Make an interface to test the bot locally. That code goes here.
+```
+@app.route('/test')
+def testmain():
+    pass
+    #test user interface to be implemented
+```
+The interface should have a dialogue boxes to take input message and display the reply.
+This part of the [tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates) helps to do that.
 
 
 ## See you on Ritu :heart:
