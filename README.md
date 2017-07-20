@@ -80,11 +80,12 @@ The dataset used to train this model is stored in
 ```
 action_dataset.json
 ```
+## Note:whats inside it now is just stupid. See the task 1  
+
 The intent recognition model can be trained by running
 ```
 python action_train.py
 ```
-Note:whats inside it now is just stupid. See the task 1    
 ## 2. SeqtoSeq model
 This model is used for implementing normal conversations for questions like 
 "hello how are you ?"
