@@ -9,7 +9,7 @@ git clone https://github.com/RITct/Rita.git
 
 # You need 
 * [Python](www.python.org)
-* [PyTorch](www.pytorch.org)
+* [PyTorch](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjR0dTMnJjVAhUBLZQKHTv2DRkQFgglMAA&url=http%3A%2F%2Fpytorch.org%2F&usg=AFQjCNEXSfCCJoYl_S4Utq27TyMxwyWZsg)
 * [Flask](www.flask.pocoo.org)
 * [Requests](http://docs.python-requests.org/en/master/)
 # How to run
