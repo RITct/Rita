@@ -35,10 +35,10 @@ def main():
 def process_msg(message_text):
     intent = predict_action(str(message_text)) #predicting action
     if intent != "none": #if the message is a command
-        pass #actions to be implemented in dsl.py
+        #actions to be implemented in dsl.py
         return "reply from dsl.py"    
     else: #if the message is just chitchat
-        pass #seqtoseq model for normal chat to be implemented
+        #seqtoseq model for normal chat to be implemented
         return "reply from seqtoseq model"
 
 
