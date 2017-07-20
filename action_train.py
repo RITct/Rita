@@ -17,6 +17,6 @@ for line in foss:
 training_data = training_data[0]
 training(10000, training_data) #training the model
 #sample
-predict_action("good bye")
+print(predict_action("good bye"))
 
 
