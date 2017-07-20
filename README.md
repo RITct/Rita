@@ -19,10 +19,8 @@ A local interface can be run after implementing it(see task 3) like this
 python rita.py
 ```
 # Working
-Currently building Rita as a facebook messenger bot in [python](www.python.org) [flask](flask.pocoo.org) based on this tutorial,
-```
-https://blog.hartleybrody.com/fb-messenger-bot/
-```
+Currently building Rita as a facebook messenger bot in [python](www.python.org) [flask](flask.pocoo.org) based on this [tutorial](https://blog.hartleybrody.com/fb-messenger-bot/).
+
 Message user send is fetched.
 ```
 data = request.get_json()
