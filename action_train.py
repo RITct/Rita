@@ -1,3 +1,5 @@
+#Run this code to retrain the action recognition model
+#delete secret_sauce/ann.pt before training.
 import json
 from secret_sauce.models import training, predict_action
 #importing functions for training and predicting the model
