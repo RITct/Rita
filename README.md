@@ -56,8 +56,10 @@ For example say "tell me about RIT", for this question bot may reply with link t
 intent = predict_action(str(message_text))
 ```
 ## 2. SeqtoSeq model
+This model is used for implementing normal conversations.
 Its a neural network model that will translate the question to answer like this.
 ![alt text](https://camo.githubusercontent.com/242210d7d0151cae91107ee63bff364a860db5dd/687474703a2f2f6936342e74696e797069632e636f6d2f333031333674652e706e67)
+
 
 
 ## See you on Ritu :heart:
