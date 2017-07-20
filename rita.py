@@ -21,24 +21,25 @@ def verify():
 @app.route('/', methods=['POST'])
 
 def main():
-    data = request.get_json()
+    data = request.get_json() #messages from users are fetched
     if data["object"] == "page":
         for entry in data["entry"]:
             for message_event in entry["messaging"]:
                 if message_event.get("message"):
-                    sender_id = message_event["sender"]["id"]
-                    recipent_id = message_event["recipient"]["id"]
-                    message_text = message_event["message"]["text"]
-                    reply = process_msg(message_text)
-                    send_message(sender_id,reply)
+                    sender_id = message_event["sender"]["id"] #facebook id of sender
+                    recipent_id = message_event["recipient"]["id"] #bot id
+                    message_text = message_event["message"]["text"] #message
+                    reply = process_msg(message_text) #generating reply !
+                    send_message(sender_id,reply) #replying
 
 def process_msg(message_text):
-    intent = predict_action(str(message_text))
-    if intent != "none":
+    intent = predict_action(str(message_text)) #predicting action
+    if intent != "none": #if the message is a command
         pass #actions to be implemented in dsl.py
-    else:
+        return "reply from dsl.py"    
+    else: #if the message is just chitchat
         pass #seqtoseq model for normal chat to be implemented
-    return "hello"
+        return "reply from seqtoseq model"
 
 
 def send_message(recipient_id, message_text):
