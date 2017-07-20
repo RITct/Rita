@@ -9,8 +9,8 @@ git clone https://github.com/RITct/Rita.git
 
 # You need 
 * [Python](www.python.org)
-* [PyTorch](pytorch.org)
-* [Flask](flask.pocoo.org)
+* [PyTorch](www.pytorch.org)
+* [Flask](www.flask.pocoo.org)
 * [Requests](http://docs.python-requests.org/en/master/)
 # How to run
 The web app should be deployed to the server for running it in fb messenger app.
