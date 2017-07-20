@@ -8,9 +8,9 @@ git clone https://github.com/RITct/Rita.git
 ```
 
 # You need 
-* [Python](www.python.org)
+* [Python](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwiI8POYnZjVAhVDW5QKHfTCC0cQFgghMAA&url=https%3A%2F%2Fwww.python.org%2F&usg=AFQjCNHtL9dpRTydwE89-fkyoeBWw_Ih6g)
 * [PyTorch](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjR0dTMnJjVAhUBLZQKHTv2DRkQFgglMAA&url=http%3A%2F%2Fpytorch.org%2F&usg=AFQjCNEXSfCCJoYl_S4Utq27TyMxwyWZsg)
-* [Flask](www.flask.pocoo.org)
+* [Flask](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiR-qGLnZjVAhWMQpQKHTAvCR4QFgglMAA&url=http%3A%2F%2Fflask.pocoo.org%2F&usg=AFQjCNHCF6gYMbnkUKtJl-u3lzTeLt-61A)
 * [Requests](http://docs.python-requests.org/en/master/)
 # How to run
 The web app should be deployed to the server for running it in fb messenger app.
