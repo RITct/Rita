@@ -9,11 +9,14 @@ from torch.autograd import Variable
 import torch
 
 training_data = []
-foss = open('action_dataset.json', 'r')
-for line in foss:
-    #fetching training data
-    training_data.append(json.loads(line))
 
+with open('action_dataset.json') as data_file:
+    data = json.load(data_file)
+
+for line in data:
+    #fetching training data
+    training_data.append(line)
+    
 training_data = training_data[0]
 training(10000, training_data) #training the model
 #sample
