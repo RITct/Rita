@@ -1,1 +1,82 @@
-[{"intent": "website","sentence": "open college website"},{"intent":"website", "sentence":"show me RIT website"},{"intent":"website", "sentence":"give me more information"},{"intent":"website", "sentence":"tell me more about RIT"},{"intent":"website", "sentence":"who is the principal "},{"intent":"website", "sentence":"RIT"},{"intent":"website", "sentence":"latest news about RIT"},{"intent":"goodbye", "sentence":"have a nice day"},{"intent":"goodbye", "sentence":"see you later"},{"intent":"goodbye", "sentence":"good bye"},{"intent":"goodbye", "sentence":"talk to you soon"},{"intent":"goodbye", "sentence":"i have to go"},{"intent":"goodbye", "sentence":"i am going"},{"intent":"contact", "sentence":"connect me with RIT"},{"intent":"contact", "sentence":"give me the phone number"},{"intent":"contact", "sentence":"i want to talk with authorities"},{"intent":"contact", "sentence":"how to contact"},{"intent":"location", "sentence":"how can i reach"},{"intent":"location", "sentence":"navigate me to RIT"},{"intent":"location", "sentence":"how to go there"}]
+[
+{
+"intent": "website",
+"sentence": "open college website"
+},
+{
+"intent":"website",
+"sentence":"show me RIT website"
+},
+{
+"intent":"website",
+"sentence":"give me more information"
+},
+{
+"intent":"website",
+"sentence":"tell me more about RIT"
+},
+{
+"intent":"website",
+"sentence":"who is the principal "
+},
+{
+"intent":"website", 
+"sentence":"RIT"
+},
+{
+"intent":"website",
+"sentence":"latest news about RIT"
+},
+{
+"intent":"goodbye",
+"sentence":"have a nice day"
+},
+{
+"intent":"goodbye",
+"sentence":"see you later"
+},
+{
+"intent":"goodbye",
+"sentence":"good bye"
+},
+{
+"intent":"goodbye",
+"sentence":"talk to you soon"
+},
+{
+"intent":"goodbye",
+"sentence":"i have to go"
+},
+{
+"intent":"goodbye",
+"sentence":"i am going"
+},
+{
+"intent":"contact",
+"sentence":"connect me with RIT"
+},
+{
+"intent":"contact",
+"sentence":"give me the phone number"
+},
+{
+"intent":"contact",
+"sentence":"i want to talk with authorities"
+},
+{
+"intent":"contact",
+"sentence":"how to contact"
+},
+{
+"intent":"location",
+"sentence":"how can i reach"
+},
+{
+"intent":"location",
+"sentence":"navigate me to RIT"
+},
+{
+"intent":"location",
+"sentence":"how to go there"
+}
+]
