@@ -88,7 +88,7 @@ def train(output, input, ann,learning_rate=.005):
     return output, loss.data[0]  # returning predicted output and loss
 
 #n_iters=100000
-def training(n_iters, training_data, save_model = False):
+def training(n_iters, training_data):
     all_categories, all_words = dataclean(training_data)
     metadata = open('secret_sauce/action_meta.pkl', 'wb')
     pk.dump([all_categories, all_words], metadata)
@@ -118,8 +118,8 @@ def training(n_iters, training_data, save_model = False):
                 accuracy = 0
             print('accuracy=', round(accuracy), '%', 'input=', sentence, 'actual=', all_categories[out_index[0]],
                   'guess=', all_categories[output_index])
-    if save_model:
-        torch.save(ann, 'secret_sauce/ann.pt')
+    
+    torch.save(ann, 'secret_sauce/ann.pt')
 
 def evaluate(line_tensor, ann):
 
@@ -129,7 +129,8 @@ def evaluate(line_tensor, ann):
 
 def predict_action(sentence):
     ann = torch.load('secret_sauce/ann.pt')
-    meta = pk.load('secret_sauce/action_meta.pkl')
+    with open('secret_sauce/action_meta.pkl','rb') as pickle_file:
+         meta = pk.load(pickle_file)
     all_categories = meta[0]
     all_words = meta[1]
     # function for evaluating user input sentence
