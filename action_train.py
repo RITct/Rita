@@ -15,7 +15,7 @@ with open('action_dataset.json') as data_file:
 
 for line in data:
     #fetching training data
-    training_data.append(line)
+    training_data.append(json.dumps(line))
     
 training_data = training_data[0]
 training(10000, training_data) #training the model
