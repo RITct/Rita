@@ -6,7 +6,7 @@ import requests
 from flask import Flask, request,render_template
 from secret_sauce.models import predict_action
 from dsl import dsl
-from forms import InputForm
+from templates.forms import InputForm
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '22334455'
 @app.route('/', methods=['GET'])
