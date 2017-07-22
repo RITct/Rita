@@ -26,6 +26,7 @@ A local interface can be run like this
 ```
 python rita.py
 ```
+![alt text](https:///Users/gopi/Desktop/Screen Shot 2017-07-23 at 1.40.56 AM.png)
 # Working
 Currently building Rita as a facebook messenger bot in [python](www.python.org) [flask](flask.pocoo.org) based on this [tutorial](https://blog.hartleybrody.com/fb-messenger-bot/).
 
