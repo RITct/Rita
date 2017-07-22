@@ -3,9 +3,12 @@ import os
 import sys
 import json
 import requests
-from flask import Flask, request
+from flask import Flask, request,render_template
 from secret_sauce.models import predict_action
+from dsl import dsl
+from forms import InputForm
 app = Flask(__name__)
+app.config['SECRET_KEY'] = '22334455'
 @app.route('/', methods=['GET'])
 def verify():
     # when the endpoint is registered as a webhook, it must echo back
@@ -51,12 +54,33 @@ def send_message(recipient_id, message_text):
     r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
 
 
-@app.route('/test')
+@app.route('/test',methods=['GET', 'POST'])
 
-def testmain():
-    pass
-    #test user interface to be implemented
+def test():
+    form = InputForm()
+    if form.validate_on_submit():
+
+        intent = predict_action(str(form.input_data.data))
+        log(intent)
+        if intent != "none":
+            k = dsl(intent)
+            reply = k.generate()
+            log(reply)
+            return render_template('index.html',reply = reply,form = form)
+        else:
+            #reply = seqtoseq(str(form.input_data.data)) will get there soon !
+            reply = "sorry i didnt get that"
+            return render_template('index.html',reply = reply,form = form)
+    return render_template('index.html',form = form)
+
+def log(message):
+    if message:
+       print(str(message))
+       sys.stdout.flush()
+    else:
+       print("NULL")
+       sys.stdout.flush()
 
 if __name__ == '__main__':
-    app.debug = True
+    #app.debug = True
     app.run()
