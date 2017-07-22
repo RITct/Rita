@@ -16,11 +16,11 @@ with open('action_dataset.json') as data_file:
 for line in data:
     #fetching training data
     training_data.append(line)
-    
+
 training(10000, training_data) #training the model
 #testing with a new input
-print("got to college website")
-print("intent:" + predict_action("go to college website"))
+print("hello")
+print("intent:" + predict_action("hello"))
 """
 accuracy= 0 % input= tell me more about RIT actual= website guess= website
 accuracy= 0 % input= give me more information actual= website guess= website
