@@ -16,6 +16,11 @@ git clone https://github.com/RITct/Rita.git
 * [Requests](http://docs.python-requests.org/en/master/)
 * [flask_wtf](https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiIhJKU1p3VAhVGtI8KHWUcDHIQFggnMAA&url=https%3A%2F%2Fflask-wtf.readthedocs.io%2F&usg=AFQjCNFaFBlKvOFtw3CNKT2uSCTlzkZD9Q)
 # How to run
+First Run
+```
+python action_train.py
+```
+for training the model. 
 The web app should be deployed to the server for running it in fb messenger app.
 A local interface can be run like this
 ```
@@ -107,8 +112,7 @@ SeqtoSeq model in pytorch can be implemented like [this](http://pytorch.org/tuto
 ```
 2. Implement seqtoseq model. This need large dataset of question-answers. Plan is to deploy the bot with action recognition model and collect the questions people ask for making seqtoseq dataset.      
    
-3. Add a stylesheet for "index.html". In flask stylesheets are addedin a folder,static.
-
+3.Edit the stylesheet "static/style.css". 
 This [tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) helps to learn flask.
 
 
