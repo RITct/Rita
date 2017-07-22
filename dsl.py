@@ -6,6 +6,7 @@ class dsl(object):
         self.goodbye(intent)
         self.contact(intent)
         self.location(intent)
+        self.greetings(intent)
     def generate(self):
         return self.rep
     def website(self,intent):
@@ -20,3 +21,6 @@ class dsl(object):
     def location(self,intent):
         if intent == "location":
             self.rep = random.choice(["here is the address:(address)","i will navigate you:(address)","RIT is here:(address)","Look at this:(address)"])
+    def greetings(self,intent):
+        if intent == "greeting":
+            self.rep = random.choice(["hello there","Hi","hi there","its good to see you","hello"])
