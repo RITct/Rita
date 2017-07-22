@@ -26,7 +26,11 @@ A local interface can be run like this
 ```
 python rita.py
 ```
-
+Go to,
+```
+http://127.0.0.1:5000/test
+```
+in the browser. 
 # Working
 Currently building Rita as a facebook messenger bot in [python](www.python.org) [flask](flask.pocoo.org) based on this [tutorial](https://blog.hartleybrody.com/fb-messenger-bot/).
 
@@ -113,7 +117,7 @@ SeqtoSeq model in pytorch can be implemented like [this](http://pytorch.org/tuto
 ```
 2. Implement seqtoseq model. This need large dataset of question-answers. Plan is to deploy the bot with action recognition model and collect the questions people ask for making seqtoseq dataset.      
    
-3.Edit the stylesheet "static/style.css". 
+3. Edit the stylesheet "static/style.css". 
 This [tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) helps to learn flask.
 
 
