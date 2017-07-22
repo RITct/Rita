@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Rita</title>
+  </head>
+  <body>
+    <h1>
+        Rita
+    </h1>
+    <div>
+        {% if reply %}
+        <p>
+            {{reply}}
+        </p>
+        {% else %}
+        <p>
+            talk to me ...
+        </p>
+        {% endif %}
+    </div>
+    <form action="" method = "post" name = "test">
+        {{ form.hidden_tag() }}
+        <p>
+            {{form.input_data(size = 80)}}
+        </p>
+    </form>
+    </body>
+</html>
