@@ -104,15 +104,9 @@ SeqtoSeq model in pytorch can be implemented like [this](http://pytorch.org/tuto
 ```
 2. Implement seqtoseq model. This need large dataset of question-answers. Plan is to deploy the bot with action recognition model and collect the questions people ask for making seqtoseq dataset.      
    
-3. Make an interface to test the bot locally. That code goes here.
-```
-@app.route('/test')
-def testmain():
-    pass
-    #test user interface to be implemented
-```
-The interface should have a dialogue boxes to take input message and display the reply.
-This part of the [tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates) helps to do that.
+3. Add a stylesheet for "index.html". In flask stylesheets are addedin a folder,static.
+
+This [tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) helps to learn flask.
 
 
 ## See you on Ritu :heart:
