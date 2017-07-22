@@ -1,6 +1,6 @@
 # Rita
 Rita a.k.a RIT-assistant is the virtual assistant of RIT.
-# Current Avasta
+# Current Avasta !
 ![alt text](https://user-images.githubusercontent.com/16781355/28494187-dc747286-6f44-11e7-8cf5-6383efacf779.png)
 
 # Get the code
