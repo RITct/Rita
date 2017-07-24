@@ -88,7 +88,7 @@ def train(output, input, ann,learning_rate=.005):
     return output, loss.data[0]  # returning predicted output and loss
 
 #n_iters=100000
-def training(n_iters, training_data):
+def action_train(n_iters, training_data):
     all_categories, all_words = dataclean(training_data)
     metadata = open('secret_sauce/action_meta.pkl', 'wb')
     pk.dump([all_categories, all_words], metadata)
@@ -127,7 +127,7 @@ def evaluate(line_tensor, ann):
     output = ann(line_tensor)
     return output
 
-def predict_action(sentence):
+def action_predict(sentence):
     ann = torch.load('secret_sauce/ann.pt')
     with open('secret_sauce/action_meta.pkl','rb') as pickle_file:
          meta = pk.load(pickle_file)
