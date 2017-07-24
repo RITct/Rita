@@ -1,7 +1,7 @@
 #Run this code to retrain the action recognition model
 #delete secret_sauce/ann.pt before training.
 import json
-from secret_sauce.models import training, predict_action
+from secret_sauce.action_models import action_train, action_predict
 #importing functions for training and predicting the model
 import torch.nn as nn
 #importing torch
@@ -17,10 +17,10 @@ for line in data:
     #fetching training data
     training_data.append(line)
 
-training(10000, training_data) #training the model
+action_train(10000, training_data) #training the model
 #testing with a new input
 print("hello")
-print("intent:" + predict_action("hello"))
+print("intent:" + action_predict("hello"))
 """
 accuracy= 0 % input= tell me more about RIT actual= website guess= website
 accuracy= 0 % input= give me more information actual= website guess= website
