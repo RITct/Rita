@@ -4,7 +4,7 @@ import sys
 import json
 import requests
 from flask import Flask, request,render_template
-from secret_sauce.models import predict_action
+from secret_sauce.action_models import action_predict
 from dsl import dsl
 from templates.forms import InputForm
 app = Flask(__name__)
@@ -36,7 +36,7 @@ def main():
                     send_message(sender_id,reply) #replying
 
 def process_msg(message_text):
-    intent = predict_action(str(message_text)) #predicting action
+    intent = action_predict(str(message_text)) #predicting action
     if intent != "none": #if the message is a command
         k = dsl(intent)
         reply = k.generate()
@@ -60,7 +60,7 @@ def test():
     form = InputForm()
     if form.validate_on_submit():
 
-        intent = predict_action(str(form.input_data.data))
+        intent = action_predict(str(form.input_data.data))
         log(intent)
         if intent != "none":
             k = dsl(intent)
