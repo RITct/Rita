@@ -18,7 +18,7 @@ def verify():
             return "Verification token mismatch", 403
         return request.args["hub.challenge"], 200
 
-    return "Hello world", 200
+    return "go to http://127.0.0.1:5000/test", 200
 
 
 @app.route('/', methods=['POST'])
@@ -34,7 +34,16 @@ def main():
                     message_text = message_event["message"]["text"] #message
                     reply = process_msg(message_text) #generating reply !
                     send_message(sender_id,reply) #replying
-
+                elif message_event.get("postback"):
+                    sender_id = message_event["sender"]["id"] #facebook id of sender
+                    recipent_id = message_event["recipient"]["id"] #bot id
+                    payload = message_event["postback"]["payload"] #postback payload
+                    process_postback(payload)
+                else:
+                    pass
+def process_postback(payload):
+    #to be implemented
+    pass
 def process_msg(message_text):
     intent = action_predict(str(message_text)) #predicting action
     if intent != "none": #if the message is a command
@@ -43,15 +52,22 @@ def process_msg(message_text):
         return reply
     else: #if the message is just chitchat
         #seqtoseq model for normal chat to be implemented
-        return "reply from seqtoseq model"
+        return random.choice(["sorry this is a prototype","I may be malfunctioning","sorry i didnt get that"])
 
 
-def send_message(recipient_id, message_text):
-
+def send_message(recipient_id, message):
+    message_text = message["text"]
     params = {"access_token": os.environ["PAGE_ACCESS_TOKEN"]}
     headers = {"Content-Type": "application/json"}
     data = json.dumps({"recipient": {"id": recipient_id},"message": {"text": message_text}})
-    r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
+    if 'postback'in message:
+        buttons = {"type":"postback","title":message["post_content"],"payload":message["payload"]}
+        r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data, buttons = buttons)
+    elif 'url' in message:
+        buttons = {"type":"web_url","url":message["url"],"title":message["title"],"webview_height_ratio":"compact"}
+        r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data, buttons = buttons)
+    else:
+        r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
 
 
 @app.route('/test',methods=['GET', 'POST'])
@@ -66,11 +82,11 @@ def test():
             k = dsl(intent)
             reply = k.generate()
             log(reply)
-            return render_template('index.html',reply = reply,form = form)
+            return render_template('index.html',reply = reply["text"],form = form)
         else:
             #reply = seqtoseq(str(form.input_data.data)) will get there soon !
-            reply = "sorry i didnt get that"
-            return render_template('index.html',reply = reply,form = form)
+            repl = "sorry i didnt get that"
+            return render_template('index.html',reply = repl,form = form)
     return render_template('index.html',form = form)
 
 def log(message):
