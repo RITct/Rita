@@ -44,7 +44,8 @@ Go to,
 ```
 http://127.0.0.1:5000/test
 ```
-in the browser. 
+in the browser. Tada !
+![alt text](https://user-images.githubusercontent.com/16781355/28494187-dc747286-6f44-11e7-8cf5-6383efacf779.png)
 # Working
 Currently building Rita as a facebook messenger bot in [python](www.python.org) [flask](flask.pocoo.org) based on this [tutorial](https://blog.hartleybrody.com/fb-messenger-bot/).
 
