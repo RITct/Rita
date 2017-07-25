@@ -16,8 +16,6 @@ answer:
 ```
 for each sample.
 ## add the questions and answers you wish the bot need !  
-# Current Avasta !
-![alt text](https://user-images.githubusercontent.com/16781355/28494187-dc747286-6f44-11e7-8cf5-6383efacf779.png)
 
 # Get the code
 clone the repostory with
