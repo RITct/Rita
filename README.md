@@ -1,5 +1,20 @@
 # Rita
 Rita a.k.a RIT-assistant is the virtual assistant of RIT.
+# chitchat dataset
+AI assistants like google assistant are trained with huge conversatonal dataset extracted from email and google plus chat data collections. Those datasets are not available for public. Rita need such a dataset for training the coversational model.
+```
+chitchat_dataset.json
+```
+is created for collecting that dataset. It contain,
+```
+question:
+```
+and 
+```
+answer:
+```
+for each sample.
+## add the questions and answers you wish the bot need !  
 # Current Avasta !
 ![alt text](https://user-images.githubusercontent.com/16781355/28494187-dc747286-6f44-11e7-8cf5-6383efacf779.png)
 
