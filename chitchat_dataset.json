@@ -1,0 +1,68 @@
+//chitchat dataset is for training the seqtoseq model for building normal conversation
+//do contribute
+[
+    {
+        "question":"hello how are you ?",
+        "answer":"i am fine"
+    },
+    {
+       "question": "whats up ?",
+        "answer":"going great"
+    },
+    {
+       "question": "how are you ?",
+        "answer":"i am good what about you ?"
+    },
+
+    {
+       "question": "how is things going?",
+        "answer":"ver good"
+    },
+
+    {
+        "question":"hi there",
+        "answer":"hello"
+    },
+    {
+       "question": "hello",
+        "answer":"hiiii"
+    },
+    {
+       "question": "hai",
+        "answer":"hola"
+    },
+    {
+       "question": "hi there",
+        "answer":"hi how can i help you ?"
+    },
+    {
+       "question": "hello there",
+        "answer":"hello what can i do for you ?"
+    },
+    {
+       "question": "hey",
+        "answer":"hello how can i help ?"
+    },
+    {
+       "question": "hello",
+        "answer":"i am rita"
+    },
+    {
+        "question":"what is your name ?",
+        "answer":"i am rita"
+
+    },
+    {
+        "question": "tell me your name ?",
+        "answer":"my name is rita"
+    },
+    {
+        "question": "do you have a name ?",
+        "answer":"the name is rita"
+    },
+    {
+        "question": "tell me your name ?",
+        "answer":"i am rita"
+    }
+
+]
