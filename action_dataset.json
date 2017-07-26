@@ -27,30 +27,7 @@
         "intent": "website",
         "sentence": "latest news about RIT"
     },
-    {
-        "intent": "goodbye",
-        "sentence": "have a nice day"
-    },
-    {
-        "intent": "goodbye",
-        "sentence": "see you later"
-    },
-    {
-        "intent": "goodbye",
-        "sentence": "good bye"
-    },
-    {
-        "intent": "goodbye",
-        "sentence": "talk to you soon"
-    },
-    {
-        "intent": "goodbye",
-        "sentence": "i have to go"
-    },
-    {
-        "intent": "goodbye",
-        "sentence": "i am going"
-    },
+
     {
         "intent": "contact",
         "sentence": "connect me with RIT"
@@ -78,29 +55,5 @@
     {
         "intent": "location",
         "sentence": "how to go there"
-    },
-    {
-        "intent": "greeting",
-        "sentence": "how are you?"
-    },
-    {
-        "intent": "greeting",
-        "sentence": "how is your day?"
-    },
-    {
-        "intent": "greeting",
-        "sentence": "hi there hello"
-    },
-    {
-        "intent": "greeting",
-        "sentence": "good morning"
-    },
-    {
-        "intent": "greeting",
-        "sentence": "good day"
-    },
-    {
-        "intent": "greeting",
-        "sentence": "how is it going today?"
     }
 ]
