@@ -1,28 +1,115 @@
 <html>
-  <head>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
-    <title>Rita</title>
-  </head>
-  <body>
-    <h1>
-        Rita
-    </h1>
-    <div>
-        {% if reply %}
-        <p>
-            {{reply}}
-        </p>
-        {% else %}
-        <p>
-            talk to me ...
-        </p>
-        {% endif %}
-    </div>
-    <form action="" method = "post" name = "test">
-        {{ form.hidden_tag() }}
-        <p>
-            {{form.input_data(size = 80)}}
-        </p>
-    </form>
+    <head>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+        <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Artifika' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            body{
+
+                font-family: "Droid Serif";
+            }
+            .chat-area{
+                position: relative;
+                width: 60%;
+                height: 80%;
+                margin: 2% 20% 2% 20%;
+            }
+            .bubble {
+                position: relative;
+                background: #FFFFCC;
+                border: 1px solid #FFCC00;
+                width:auto;
+                padding:5px 10px 2px 10px;
+                font-family:"Artifika";
+                margin:0;
+                font-size:16px;
+                border-radius:3px;
+
+            }
+            .bubble:after,
+            .bubble:before {
+                right: 100%;
+                top: 50%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+            }
+            #msg{
+                background: #e6f5ff;
+                border: 1px solid #33adff;
+            }
+
+            #textbox{
+                position: absolute;
+                bottom: 0;
+                left: 2%;
+                right: 5%;
+            }
+            .icon{
+                color: #33adff;
+                margin-right: 2%
+            }
+            @media screen and (max-width: 768px) {
+                .chat-area{
+                width: 90%;
+                height: 80%;
+                margin: 2% 5% 2% 5%;
+            }
+            }
+        </style>
+
+        <title>Rita</title>
+    </head>
+
+    <body>
+        <div class="container-fluid" ng-controller="AppCtrl">
+            <div class="row-fluid">
+                <h2 align="center">
+                    RITA (RIT Assistant)
+                </h2>
+                <div class="well chat-area"> 
+                    <div class="bubble" id="msg" align="right">
+                    {% if form.input_data.data %}
+                        <p>
+                        {{form.input_data.data}}
+                        </p>
+                    {% else %}
+                        <p>
+                            <i class="icon fa fa-commenting" aria-hidden="true"></i>
+                        </p>
+                    {% endif %}
+                    </div>
+                    </br>
+
+                    <div class="bubble" align="left">
+                        {% if reply %}
+                        <p>
+                            {{reply}}
+                        </p>
+                        {% else %}
+                        <p>
+                            talk to me ...
+                        </p>
+                        {% endif %}
+                    </div>
+                    </br>
+
+                    <div id="textbox">
+                        <form class="form-inline" action="" method = "post" name = "test">
+                            <i class="icon fa fa-fw fa-3x fa-comments-o" aria-hidden="true"></i>
+                            {{ form.hidden_tag() }}
+                                {{form.input_data}}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
