@@ -5,6 +5,7 @@ import json
 import requests
 from flask import Flask, request,render_template, redirect
 from secret_sauce.action_models import action_predict
+from secret_sauce.seqtoseq_model import reply_predict
 from dsl import dsl
 from templates.forms import InputForm
 app = Flask(__name__)
@@ -51,8 +52,9 @@ def process_msg(message_text):
         reply = k.generate()
         return reply
     else: #if the message is just chitchat
-        #seqtoseq model for normal chat to be implemented
-        return random.choice(["sorry this is a prototype","I may be malfunctioning","sorry i didnt get that"])
+        reply = reply_predict(message_text)
+        return reply
+        #return random.choice(["sorry this is a prototype","I may be malfunctioning","sorry i didnt get that"])
 
 
 def send_message(recipient_id, message):
@@ -87,9 +89,8 @@ def test():
             form.input_data.data = ""
             return render_template('index.html',reply = reply["text"],form = form,input_text = input_text)
         else:
-            #reply = seqtoseq(str(form.input_data.data)) will get there soon !
-            repl = "sorry i didnt get that"
-            return render_template('index.html',reply = repl,form = form)
+            reply = reply_predict(str(form.input_data.data))
+            return render_template('index.html',reply = reply,form = form)
     return render_template('index.html',form = form)
 
 def log(message):
