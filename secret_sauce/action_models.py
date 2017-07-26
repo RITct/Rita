@@ -110,7 +110,7 @@ def action_train(n_iters, training_data):
            #top_v,top_i=output.data.topk(1)
             k = 0
             output_index = output.data.numpy()[0]
-            
+
             # converting output tensor to integer
             out_index = category_tensor.data.numpy()  # converting tensor datatype to integer
             accuracy = 100-(loss*100)
@@ -118,7 +118,7 @@ def action_train(n_iters, training_data):
                 accuracy = 0
             print('accuracy=', round(accuracy), '%', 'input=', sentence, 'actual=', all_categories[out_index[0]],
                   'guess=', all_categories[output_index])
-    
+
     torch.save(ann, 'secret_sauce/ann.pt')
 
 def evaluate(line_tensor, ann):
@@ -138,6 +138,6 @@ def action_predict(sentence):
     output = evaluate(Variable(sentencetotensor(sentence, all_words)), ann)
     top_v, top_i = output.data.topk(1)
     output_index = top_i[0][0]
-    if top_v[0][0] <= -1:
+    if top_v[0][0] <= -0.1:
         return "none"
     return all_categories[output_index]
