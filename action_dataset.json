@@ -17,10 +17,6 @@
     },
     {
         "intent": "website",
-        "sentence": "who is the principal "
-    },
-    {
-        "intent": "website",
         "sentence": "RIT"
     },
     {
