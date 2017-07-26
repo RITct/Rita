@@ -107,7 +107,7 @@ For example say "tell me about RIT", for this question bot may reply with link t
 This is an example tutorial for how to build an [intent recogniser](https://github.com/GopikrishnanSasikumar/Text_Classifier-pytorch).
 The dataset used to train this model is stored in
 ```
-action_dataset.json
+ action_dataset.json
 ```
 ## Note:whats inside it now is just stupid. See the task 1  
 
