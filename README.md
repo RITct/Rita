@@ -34,8 +34,10 @@ First Run
 ```
 bash setup.sh
 ```
-for training the models. 
+for training the models.
+</br>
 The web app should be deployed to the server for running it in fb messenger app.
+</br>
 A local interface can be run like this
 ```
 python rita.py
@@ -53,7 +55,7 @@ in the browser. Tada !
 
 # Working
 Currently building Rita as a facebook messenger bot in [python](www.python.org) [flask](flask.pocoo.org) based on this [tutorial](https://blog.hartleybrody.com/fb-messenger-bot/).
-
+</br>
 Message user send is fetched.
 ```
 data = request.get_json()
@@ -98,10 +100,12 @@ def process_msg(message_text):
         return reply
         
 ```
-The predict_action() function output an action to be performed or "none" if no intent recognised. If intent is found then action is executed in dsl.py and a reply is generated. If predict_action() return "none", that means its a normal conversation like, 
+The predict_action() function output an action to be performed or "none" if no intent recognised. If intent is found then action is executed in dsl.py and a reply is generated. If predict_action() return "none", that means its a normal conversation like,
+</br>
 "hello how are you ?"
+</br>
 Another model called seqtoseq will generate a reply for the question. 
-
+</br>
 We use two neural network models in Rita
 ## 1. Intent Recognition model
 ```
