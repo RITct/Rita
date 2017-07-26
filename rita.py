@@ -3,7 +3,7 @@ import os
 import sys
 import json
 import requests
-from flask import Flask, request,render_template
+from flask import Flask, request,render_template, redirect
 from secret_sauce.action_models import action_predict
 from dsl import dsl
 from templates.forms import InputForm
@@ -82,7 +82,10 @@ def test():
             k = dsl(intent)
             reply = k.generate()
             log(reply)
-            return render_template('index.html',reply = reply["text"],form = form)
+            input_text = form.input_data.data
+            #print(input_text)
+            form.input_data.data = ""
+            return render_template('index.html',reply = reply["text"],form = form,input_text = input_text)
         else:
             #reply = seqtoseq(str(form.input_data.data)) will get there soon !
             repl = "sorry i didnt get that"
