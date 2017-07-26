@@ -1,0 +1,2 @@
+python3 action_train.py
+python3 seqtoseq_train.py
