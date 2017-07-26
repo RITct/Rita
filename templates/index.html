@@ -58,10 +58,10 @@
             }
             @media screen and (max-width: 768px) {
                 .chat-area{
-                width: 90%;
-                height: 80%;
-                margin: 2% 5% 2% 5%;
-            }
+                    width: 95%;
+                    height: 80%;
+                    margin: 2% 2% 2% 2%;
+                }
             }
         </style>
 
@@ -105,7 +105,7 @@
                         <form class="form-inline" action="" method = "post" name = "test">
                             <i class="icon fa fa-fw fa-3x fa-comments-o" aria-hidden="true"></i>
                             {{ form.hidden_tag() }}
-                                {{form.input_data}}
+                                {{form.input_data(size=30)}}
                         </form>
                     </div>
                 </div>
