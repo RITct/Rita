@@ -13,5 +13,5 @@ for line in data:
     #fetching training data
     training_data.append((line["question"],line["answer"]))
 seqtoseq_train(10000,training_data)
-print(reply_predict("any problem"))
-#print(training_data[0])
+print("who are you ?")
+print(reply_predict("who are you"))
