@@ -45,7 +45,7 @@ Go to,
 http://127.0.0.1:5000/test
 ```
 in the browser. Tada !
-![alt text](https://raw.githubusercontent.com/RITct/Rita/Master/Rita/rita.png)
+![alt text](https://github.com/RITct/Rita/rita.png)
 
 
 # Working
