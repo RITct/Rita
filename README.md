@@ -34,6 +34,10 @@ First Run
 ```
 python action_train.py
 ```
+and 
+```
+python seqtoseq_train.py
+```
 for training the model. 
 The web app should be deployed to the server for running it in fb messenger app.
 A local interface can be run like this
@@ -88,15 +92,15 @@ reply = process_msg(message_text)
 This is how things work inside process_msg(),
 ```
 def process_msg(message_text):
-    intent = predict_action(str(message_text)) #predicting action
+    intent = action_predict(str(message_text)) #predicting action
     if intent != "none": #if the message is a command
         k = dsl(intent)
         reply = k.generate()
         return reply
     else: #if the message is just chitchat
-        #seqtoseq model for normal chat to be implemented
-        return "reply from seqtoseq model"
-
+        reply = reply_predict(message_text)
+        return reply
+        
 ```
 The predict_action() function output an action to be performed or "none" if no intent recognised. If intent is found then action is executed in dsl.py and a reply is generated. If predict_action() return "none", that means its a normal conversation like, 
 "hello how are you ?"
@@ -114,8 +118,6 @@ The dataset used to train this model is stored in
 ```
  action_dataset.json
 ```
-## Note:whats inside it now is just stupid. See the task 1  
-
 The intent recognition model can be trained by running
 ```
 python action_train.py
@@ -135,10 +137,4 @@ SeqtoSeq model in pytorch can be implemented like [this](http://pytorch.org/tuto
 "intent":"website", "sentence":"give me more information"
 "intent":"website", "sentence":"tell me more about RIT"
 ```
-2. Implement seqtoseq model. This need large dataset of question-answers. Plan is to deploy the bot with action recognition model and collect the questions people ask for making seqtoseq dataset.      
-   
-3. Edit the stylesheet "static/style.css". 
-This [tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) helps to learn flask.
-
-
 ## See you on Ritu :heart:
