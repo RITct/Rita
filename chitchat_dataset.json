@@ -1,68 +1,86 @@
-//chitchat dataset is for training the seqtoseq model for building normal conversation
-//do contribute
 [
     {
-        "question":"hello how are you ?",
-        "answer":"i am fine"
+        "question": "hello how are you ?",
+        "answer": "i am fine"
     },
     {
-       "question": "whats up ?",
-        "answer":"going great"
+        "question": "whats up ?",
+        "answer": "going great"
     },
     {
-       "question": "how are you ?",
-        "answer":"i am good what about you ?"
-    },
-
-    {
-       "question": "how is things going?",
-        "answer":"ver good"
-    },
-
-    {
-        "question":"hi there",
-        "answer":"hello"
+        "question": "how are you ?",
+        "answer": "i am good what about you ?"
     },
     {
-       "question": "hello",
-        "answer":"hiiii"
+        "question": "how is things going?",
+        "answer": "ver good"
     },
     {
-       "question": "hai",
-        "answer":"hola"
+        "question": "hi there",
+        "answer": "hello"
     },
     {
-       "question": "hi there",
-        "answer":"hi how can i help you ?"
+        "question": "hello",
+        "answer": "hiiii"
     },
     {
-       "question": "hello there",
-        "answer":"hello what can i do for you ?"
+        "question": "hai",
+        "answer": "hola"
     },
     {
-       "question": "hey",
-        "answer":"hello how can i help ?"
+        "question": "hi there",
+        "answer": "hi how can i help you ?"
     },
     {
-       "question": "hello",
-        "answer":"i am rita"
+        "question": "hello there",
+        "answer": "hello what can i do for you ?"
     },
     {
-        "question":"what is your name ?",
-        "answer":"i am rita"
-
+        "question": "hey",
+        "answer": "hello how can i help ?"
+    },
+    {
+        "question": "hello",
+        "answer": "i am rita"
+    },
+    {
+        "question": "what is your name ?",
+        "answer": "i am rita"
     },
     {
         "question": "tell me your name ?",
-        "answer":"my name is rita"
+        "answer": "my name is rita"
     },
     {
         "question": "do you have a name ?",
-        "answer":"the name is rita"
+        "answer": "the name is rita"
     },
     {
         "question": "tell me your name ?",
-        "answer":"i am rita"
-    }
+        "answer": "i am rita"
+    },
+    {
+        "question": "bye i am going",
+        "answer": "have a nice day"
+    },
+    {
+        "question": "good bye",
+        "answer": "see you later"
+    },
+    {
+        "question": "goodbye",
+        "answer": "good bye"
+    },
 
+     {
+        "question": "i have to go",
+        "answer": "bye bye"
+    },
+
+    {
+
+        "question": "i am going",
+        "answer": "bye see you"
+
+    }
 ]
