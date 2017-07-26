@@ -19,8 +19,8 @@ for line in data:
 
 action_train(10000, training_data) #training the model
 #testing with a new input
-print("hello")
-print("intent:" + action_predict("hello"))
+print("how can i reach RIT")
+print("intent:" + action_predict("how can i reach RIT"))
 """
 accuracy= 0 % input= tell me more about RIT actual= website guess= website
 accuracy= 0 % input= give me more information actual= website guess= website
