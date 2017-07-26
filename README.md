@@ -45,7 +45,8 @@ Go to,
 http://127.0.0.1:5000/test
 ```
 in the browser. Tada !
-![alt text](https://Rita/rita.png)
+![alt text](https://raw.githubusercontent.com/RITct/Rita/Master/rita.png)
+
 
 # Working
 Currently building Rita as a facebook messenger bot in [python](www.python.org) [flask](flask.pocoo.org) based on this [tutorial](https://blog.hartleybrody.com/fb-messenger-bot/).
