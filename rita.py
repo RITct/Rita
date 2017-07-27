@@ -10,7 +10,7 @@ from dsl import dsl
 from templates.forms import InputForm
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '22334455'
-@app.route('/', methods=['GET'])
+@app.route('/fbbot', methods=['GET'])
 def verify():
     # when the endpoint is registered as a webhook, it must echo back
     # the 'hub.challenge' value it receives in the query arguments
