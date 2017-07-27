@@ -101,6 +101,8 @@ class AttnDecoderRNN(nn.Module):
 def indexesFromSentence(lang, sentence):
     out = []
     for word in sentence.split(' '):
+        if word not in lang.word2index:
+            continue
         k = lang.word2index[word]
         out.append(k)
     return out
