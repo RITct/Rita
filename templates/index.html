@@ -9,21 +9,37 @@
 
         <style>
             body{
-
+                background-color: #00001a;
                 font-family: "Droid Serif";
+                padding-top: 10px;
+            }
+            img{
+                width: 50px;
+                height: auto; 
+                float: left; 
+                margin-right: 15px;
+            }
+            h2{
+                text-shadow: -2px 0 black; 
+                color: white; 
+                float: right; 
+                display:inline-block;
             }
             .chat-area{
                 position: relative;
+                background-color: #61616b;
+                border-color: #61616b;
                 width: 60%;
-                height: 80%;
+                height: 70%;
                 margin: 2% 20% 2% 20%;
             }
             .bubble {
                 position: relative;
-                background: #FFFFCC;
+                background: black;
+                color:  #FFCC00;
                 border: 1px solid #FFCC00;
                 width:auto;
-                padding:5px 10px 2px 10px;
+                padding:7px 10px 4px 10px;
                 font-family:"Artifika";
                 margin:0;
                 font-size:16px;
@@ -42,25 +58,35 @@
                 pointer-events: none;
             }
             #msg{
-                background: #e6f5ff;
+                background: black;
                 border: 1px solid #33adff;
+                color: #33adff;
             }
 
             #textbox{
                 position: absolute;
+                color: #00001a;
                 bottom: 0;
                 left: 2%;
                 right: 5%;
             }
             .icon{
-                color: #33adff;
+                color: #00001a;
                 margin-right: 2%
             }
             @media screen and (max-width: 768px) {
                 .chat-area{
                     width: 95%;
-                    height: 80%;
+                    height: 70%;
                     margin: 2% 2% 2% 2%;
+                }
+                h2{
+                    font-size: 150%;
+                }
+                img{
+                    width: 30px;
+                    height: auto; 
+                    margin-right: 10px;
                 }
             }
         </style>
@@ -71,9 +97,15 @@
     <body>
         <div class="container-fluid" ng-controller="AppCtrl">
             <div class="row-fluid">
-                <h2 align="center">
-                    RITA (RIT Assistant)
-                </h2>
+                <div align="center">
+                    <div style="display:inline-block;">
+                        <img src= {{ url_for('static', filename='RITctLogo.png') }} > 
+                    </div>
+                    <div style="display:inline-block;">
+                        <h2 align="center">RITA
+                        </h2>
+                    </div>
+                </div>
                 <div class="well chat-area">
                     <div class="bubble" id="msg" align="right">
                     {% if input_text %}
@@ -82,7 +114,7 @@
                         </p>
                     {% else %}
                         <p>
-                            <i class="icon fa fa-commenting" aria-hidden="true"></i>
+                            <i class="fa fa-commenting" aria-hidden="true"></i>
                         </p>
                     {% endif %}
                     </div>
@@ -108,6 +140,13 @@
                                 {{form.input_data(size=30)}}
                         </form>
                     </div>
+                </div>
+            </div>
+            <div class="footer-copyright" style="text-align:center;color:white">
+                <div class="container">
+                    </br>
+                    &copy; 2017 RIT Creative Team | TinkerHub RIT
+                    </br>
                 </div>
             </div>
         </div>
