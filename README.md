@@ -104,14 +104,18 @@ The dataset used to train this model is stored in
 ```
 The intent recognition model can be trained by running
 ```
-python action_train.py
+python3 action_train.py
 ```
 ## 2. SeqtoSeq model
 This model is used for implementing normal conversations for questions like 
 "hello how are you ?"
 Its a neural network model that will translate the question to answer like this.
 ![alt text](https://camo.githubusercontent.com/242210d7d0151cae91107ee63bff364a860db5dd/687474703a2f2f6936342e74696e797069632e636f6d2f333031333674652e706e67)
-
+</br>
+Seqtoseq model can be trained by running,
+```
+python3 seqtoseq_train.py
+```
 SeqtoSeq model in pytorch can be implemented like [this](http://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html#sphx-glr-intermediate-seq2seq-translation-tutorial-py).
 
 # Tasks
