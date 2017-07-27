@@ -1,22 +1,6 @@
 # Rita
 Rita a.k.a RIT-assistant is the virtual assistant of RIT.
 
-# chitchat dataset
-AI assistants like google assistant are trained with huge conversatonal dataset extracted from email and google plus chat data collections. Those datasets are not available for public. Rita need such a dataset for training the coversational model.
-```
-chitchat_dataset.json
-```
-is created for collecting that dataset. It contain,
-```
-question:
-```
-and 
-```
-answer:
-```
-for each sample.
-## add the questions and answers you wish the bot need !  
-
 # Get the code
 clone the repostory with
 ```
@@ -36,11 +20,11 @@ bash setup.sh
 ```
 for training the models.
 </br>
-The web app should be deployed to the server for running it in fb messenger app.
-</br>
 A local interface can be run like this
+</br>
+
 ```
-python rita.py
+python3 rita.py
 ```
 Go to,
 ```
@@ -129,12 +113,41 @@ Its a neural network model that will translate the question to answer like this.
 ![alt text](https://camo.githubusercontent.com/242210d7d0151cae91107ee63bff364a860db5dd/687474703a2f2f6936342e74696e797069632e636f6d2f333031333674652e706e67)
 
 SeqtoSeq model in pytorch can be implemented like [this](http://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html#sphx-glr-intermediate-seq2seq-translation-tutorial-py).
+
 # Tasks
-1. Make a list of actions to be performed by Rita.Create dataset for those actions inside action_dataset.json in the form like this,
+## 1. chitchat dataset
+AI assistants like google assistant are trained with huge conversatonal dataset extracted from email and google plus chat data collections. Those datasets are not available for public. Rita need such a dataset for training the coversational model.
+```
+chitchat_dataset.json
+```
+is created for collecting that dataset. It contain,
+```
+question:
+```
+and 
+```
+answer:
+```
+for each sample.
+</br>
+</br>
+unleash your sarcasm level, contribute in the dataset !  
+
+1. Make a list of actions to be performed by Rita.Create dataset for those actions inside 
+```
+action_dataset.json 
+```
+in the form like this,
 ```
 "intent": "website","sentence": "open college website"
 "intent":"website", "sentence":"show me RIT website"
 "intent":"website", "sentence":"give me more information"
 "intent":"website", "sentence":"tell me more about RIT"
 ```
+</br>
+Then train the models again by running 
+```
+bash setup.sh
+```
+
 ## See you on Ritu :heart:
