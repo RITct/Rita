@@ -90,7 +90,10 @@ def test():
             return render_template('index.html',reply = reply["text"],form = form,input_text = input_text)
         else:
             reply = reply_predict(str(form.input_data.data))
-            return render_template('index.html',reply = reply,form = form)
+            input_text = form.input_data.data
+           
+            form.input_data.data = ""
+            return render_template('index.html',reply = reply,form = form,input_text = input_text)
     return render_template('index.html',form = form)
 
 def log(message):
