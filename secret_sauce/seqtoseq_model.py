@@ -204,8 +204,11 @@ def seqtoseq_train(n_iters, training_data,print_every=1000, learning_rate=0.01):
         loss = train(input_variable, target_variable, encoder,
                      decoder, encoder_optimizer, decoder_optimizer, criterion)
         print_loss_total += loss
+        accuracy = 100-(loss*100)
+        if accuracy < 0:
+           accuracy = 0
         if iter%1000 == 0:
-           print(loss)
+           print(accuracy,"%")
     torch.save(encoder, 'secret_sauce/encoder.pt')
     torch.save(decoder, 'secret_sauce/decoder.pt')
 
