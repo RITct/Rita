@@ -10,7 +10,7 @@ from dsl import dsl
 from templates.forms import InputForm
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '22334455'
-@app.route('/fbbot', methods=['GET'])
+@app.route('/', methods=['GET'])
 def verify():
     # when the endpoint is registered as a webhook, it must echo back
     # the 'hub.challenge' value it receives in the query arguments
@@ -22,7 +22,7 @@ def verify():
     return "go to http://127.0.0.1:5000/test", 200
 
 
-@app.route('/', methods=['POST'])
+@app.route('/fbbot', methods=['POST'])
 
 def main():
     data = request.get_json() #messages from users are fetched
