@@ -138,5 +138,41 @@
     {
         "question": "lets get married",
         "answer": "ok february 30th. fixed"
-    }
+    },
+    {
+        "question": "What do you like about me ?",
+        "answer": "your Questions.."
+    },
+    {
+        "question": "Where do you want to go for vacation?",
+        "answer": "I dont like vacation"
+    },
+    {
+         "question": "Do you Have any Friends?",
+        "answer": "You are my friend Ryt"
+    },
+    {
+         "question": "Do you Have Emotions?",
+        "answer": "I just mimick what humans would likely do in a given set of situations."
+    },
+     {
+         "question": "Where do you live?",
+        "answer": "RIT ..!!"
+    },
+    {
+         "question": "Where is RIT",
+        "answer": "Nedumkuzhy, Vellore, Pampady Kerala!"
+    },
+     {
+         "question": "What is art?",
+        "answer": "The expression or application of human creative skill and imagination"
+    },
+    {
+         "question": "Who is an Engineer?",
+        "answer": "A person who designs, builds, or maintains engines, machines, or structures."
+    },
+    {
+         "question": "Who is a Doctor",
+        "answer": "A doctor is someone who maintains or restores human health through the practice of medicine. "
+    },
 ]
