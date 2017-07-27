@@ -135,9 +135,24 @@ answer:
 for each sample.
 </br>
 </br>
-unleash your sarcasm level, contribute in the dataset !  
+unleash your sarcasm level, contribute in the dataset !
+</br>
+Add more questions and answers in 
+```
+seqtoseq_dataset.json
+```
+ 
+like this,
+ ```
 
-1. Make a list of actions to be performed by Rita.Create dataset for those actions inside 
+    {
+        "question": "your question",
+        "answer": "its answer"
+    },
+
+```
+## 2. Action_dataset
+Make a list of actions to be performed by Rita.Create dataset for those actions inside 
 ```
 action_dataset.json 
 ```
