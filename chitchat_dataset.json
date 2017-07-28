@@ -154,5 +154,13 @@
     {
         "question": "lets get married",
         "answer": "I'm out of your league"
+    },
+    {
+        "question": "hello how are you?",
+        "answer": "I'm fine and what about you?"
+    },
+    {
+        "question": "hai",
+        "answer": "hello, how are you?"
     }
 ]
