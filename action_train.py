@@ -17,10 +17,10 @@ for line in data:
     #fetching training data
     training_data.append(line)
 
-action_train(10000, training_data) #training the model
+action_train(20000, training_data) #training the model
 #testing with a new input
-print("how can i reach RIT")
-print("intent:" + action_predict("how can i reach RIT"))
+
+print("intent:" + action_predict("say whats tinkerhub"))
 """
 accuracy= 0 % input= tell me more about RIT actual= website guess= website
 accuracy= 0 % input= give me more information actual= website guess= website
