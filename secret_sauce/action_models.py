@@ -4,8 +4,7 @@ import random
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
-
-off = -0.1
+import json
 class ANN(nn.Module):
 
     def __init__(self, input_size, hidden_size, output_size):
@@ -90,8 +89,9 @@ def train(output, input, ann,learning_rate=.005):
 #n_iters=100000
 def action_train(n_iters, training_data):
     all_categories, all_words = dataclean(training_data)
-    metadata = open('secret_sauce/action_meta.pkl', 'wb')
-    pk.dump([all_categories, all_words], metadata)
+    with open('secret_sauce/action_meta.pkl','rb') as pickle_file:
+         meta = pk.load(pickle_file)
+    off = meta[2]
     current_loss = 0
     input_size = len(all_words)
     output_size = len(all_categories)
@@ -117,13 +117,27 @@ def action_train(n_iters, training_data):
         accuracy = 100-(loss*100)
         if accuracy < 0:
             accuracy = 0
-        if all_categories[out_index[0]] != all_categories[output_index]:
-            if top_v < off:
-                off = top_v
+
         if iter%100 == 0:
            print('accuracy=', round(accuracy), '%', 'input=', sentence, 'actual=', all_categories[out_index[0]],'guess=', all_categories[output_index])
 
     torch.save(ann, 'secret_sauce/ann.pt')
+    valid_data = []
+    data_a = []
+    with open('chitchat_dataset.json',) as data_file:
+        data = json.load(data_file)
+    data = data[:25]
+    for line in data:
+        valid_data.append(line['question'])
+    for i in range(1000):
+        line = str(random.choice(valid_data))
+        out = evaluate(Variable(sentencetotensor(line, all_words)), ann)
+        top_v, _ = out.data.topk(1)
+        if top_v[0][0] > off:
+            off = top_v[0][0]
+    metadata = open('secret_sauce/action_meta.pkl', 'wb')
+    pk.dump([all_categories, all_words,off], metadata)
+
 
 def evaluate(line_tensor, ann):
 
@@ -137,11 +151,13 @@ def action_predict(sentence):
          meta = pk.load(pickle_file)
     all_categories = meta[0]
     all_words = meta[1]
+    offset = meta[2]
     # function for evaluating user input sentence
     # print("input=",sentence)
     output = evaluate(Variable(sentencetotensor(sentence, all_words)), ann)
     top_v, top_i = output.data.topk(1)
     output_index = top_i[0][0]
-    if top_v[0][0] <= off:
+    print(offset,top_v[0][0])
+    if top_v[0][0] <= offset:
         return "none"
     return all_categories[output_index]
