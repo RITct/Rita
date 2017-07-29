@@ -51,5 +51,49 @@
     {
         "intent": "location",
         "sentence": "how to go there"
+    },
+    {
+        "intent": "principal",
+        "sentence": "who is the principal"
+    },
+    {
+        "intent": "principal",
+        "sentence": "tell me about your principal"
+    },
+    {
+        "intent": "principal",
+        "sentence": "who is the head of RIT"
+    },
+    {
+        "intent": "principal",
+        "sentence": "who is the principal"
+    },
+    {
+        "intent": "tinkerhub",
+        "sentence": "is there any programming club there"
+    },
+    {
+        "intent": "tinkerhub",
+        "sentence": "what is tinkerhub-RIT"
+    },
+    {
+        "intent": "tinkerhub",
+        "sentence": "what is tinkerhub"
+    },
+    {
+        "intent": "tinkerhub",
+        "sentence": "what is RIT creative team"
+    },
+    {
+        "intent": "tinkerhub",
+        "sentence": "tell me about tinkerhub"
+    },
+    {
+        "intent": "tinkerhub",
+        "sentence": "tinkerhub"
+    },
+    {
+        "intent": "tinkerhub",
+        "sentence": "RIT creative team"
     }
 ]
