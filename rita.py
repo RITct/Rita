@@ -6,7 +6,7 @@ import requests
 from flask import Flask, request,render_template, redirect
 from secret_sauce.action_models import action_predict
 from secret_sauce.seqtoseq_model import reply_predict
-from dsl import dsl
+from brain.dsl import dsl
 from templates.forms import InputForm
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '22334455'
