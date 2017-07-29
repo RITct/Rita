@@ -193,7 +193,7 @@ def seqtoseq_train(n_iters, training_data,print_every=1000, learning_rate=0.01):
     print_loss_total = 0
     hidden_size = 256
     in_lang, out_lang, inwords, outwords = dataclean(training_data)
-    metadata = open('secret_sauce/seqtoseq_meta.pkl', 'wb')
+    metadata = open('brain/seqtoseq_meta.pkl', 'wb')
     pk.dump([in_lang, out_lang], metadata)
     encoder = EncoderRNN(inwords, hidden_size)
     decoder = AttnDecoderRNN(hidden_size, outwords, dropout_p=0.1)
@@ -220,8 +220,8 @@ def seqtoseq_train(n_iters, training_data,print_every=1000, learning_rate=0.01):
            accuracy = 0
         if iter%1000 == 0:
            print(accuracy,"%")
-    torch.save(encoder, 'secret_sauce/encoder.pt')
-    torch.save(decoder, 'secret_sauce/decoder.pt')
+    torch.save(encoder, 'brain/encoder.pt')
+    torch.save(decoder, 'brain/decoder.pt')
 
 def evaluate(encoder, decoder, input_lang, output_lang, sentence, max_length=MAX_LENGTH):
 
@@ -269,9 +269,9 @@ def evaluate(encoder, decoder, input_lang, output_lang, sentence, max_length=MAX
 
 def reply_predict(sentence):
     try:
-     encoder = torch.load('secret_sauce/encoder.pt')
-     decoder = torch.load('secret_sauce/decoder.pt')
-     with open('secret_sauce/seqtoseq_meta.pkl','rb') as pickle_file:
+     encoder = torch.load('brain/encoder.pt')
+     decoder = torch.load('brain/decoder.pt')
+     with open('brain/seqtoseq_meta.pkl','rb') as pickle_file:
           meta = pk.load(pickle_file)
      input_lang = meta[0]
      output_lang = meta[1]
