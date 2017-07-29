@@ -41,6 +41,10 @@
         "sentence": "how to contact"
     },
     {
+        "intent": "contact",
+        "sentence": "contact"
+    },
+    {
         "intent": "location",
         "sentence": "how can i reach"
     },
