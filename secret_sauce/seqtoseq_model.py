@@ -5,6 +5,7 @@ from torch.autograd import Variable
 from torch import optim
 import torch.nn.functional as F
 import pickle as pk
+use_cuda = torch.cuda.is_available()
 SOS_token = 0
 EOS_token = 1
 MAX_LENGTH = 10
@@ -55,6 +56,8 @@ class EncoderRNN(nn.Module):
 
     def initHidden(self):
         result = Variable(torch.zeros(1, 1, self.hidden_size))
+        if use_cuda:
+           return result.cuda()
         return result
 
 class AttnDecoderRNN(nn.Module):
@@ -94,6 +97,8 @@ class AttnDecoderRNN(nn.Module):
 
     def initHidden(self):
         result = Variable(torch.zeros(1, 1, self.hidden_size))
+        if use_cuda:
+           return result.cuda()
         return result
 
 def indexesFromSentence(lang, sentence):
@@ -112,6 +117,8 @@ def variableFromSentence(lang, sentence):
     indexes = indexesFromSentence(lang, sentence)
     indexes.append(EOS_token)
     result = Variable(torch.LongTensor(indexes).view(-1, 1))
+    if use_cuda:
+        return result.cuda()
     return result
 
 
@@ -133,6 +140,8 @@ def train(input_variable, target_variable, encoder, decoder, encoder_optimizer, 
     target_length = target_variable.size()[0]
 
     encoder_outputs = Variable(torch.zeros(max_length, encoder.hidden_size))
+    encoder_outputs = encoder_outputs.cuda() if use_cuda else encoder_outputs
+
 
 
     loss = 0
@@ -143,6 +152,7 @@ def train(input_variable, target_variable, encoder, decoder, encoder_optimizer, 
         encoder_outputs[ei] = encoder_output[0][0]
 
     decoder_input = Variable(torch.LongTensor([[SOS_token]]))
+    decoder_input = decoder_input.cuda() if use_cuda else decoder_input
 
 
     decoder_hidden = encoder_hidden
@@ -187,6 +197,9 @@ def seqtoseq_train(n_iters, training_data,print_every=1000, learning_rate=0.01):
     pk.dump([in_lang, out_lang], metadata)
     encoder = EncoderRNN(inwords, hidden_size)
     decoder = AttnDecoderRNN(hidden_size, outwords, dropout_p=0.1)
+    if use_cuda:
+       encoder = encoder.cuda()
+       decoder = decoder.cuda()
 
     encoder_optimizer = optim.SGD(encoder.parameters(), lr=learning_rate)
     decoder_optimizer = optim.SGD(decoder.parameters(), lr=learning_rate)
@@ -217,6 +230,8 @@ def evaluate(encoder, decoder, input_lang, output_lang, sentence, max_length=MAX
     encoder_hidden = encoder.initHidden()
 
     encoder_outputs = Variable(torch.zeros(max_length, encoder.hidden_size))
+    encoder_outputs = encoder_outputs.cuda() if use_cuda else encoder_outputs
+
 
 
     for ei in range(input_length):
@@ -225,6 +240,8 @@ def evaluate(encoder, decoder, input_lang, output_lang, sentence, max_length=MAX
         encoder_outputs[ei] = encoder_outputs[ei] + encoder_output[0][0]
 
     decoder_input = Variable(torch.LongTensor([[SOS_token]]))  # SOS
+    decoder_input = decoder_input.cuda() if use_cuda else decoder_input
+
 
 
     decoder_hidden = encoder_hidden
@@ -245,6 +262,7 @@ def evaluate(encoder, decoder, input_lang, output_lang, sentence, max_length=MAX
             decoded_words.append(output_lang.index2word[ni])
 
         decoder_input = Variable(torch.LongTensor([[ni]]))
+        decoder_input = decoder_input.cuda() if use_cuda else decoder_input
 
 
     return decoded_words, decoder_attentions[:di + 1]
