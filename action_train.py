@@ -17,7 +17,7 @@ for line in data:
     #fetching training data
     training_data.append(line)
 
-#action_train(20000, training_data) #training the model
+action_train(20000, training_data) #training the model
 #testing with a new input
 #print("say wahts tinkerhub")
 print("intent:" + action_predict("how is it"))
