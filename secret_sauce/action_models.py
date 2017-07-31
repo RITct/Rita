@@ -92,6 +92,7 @@ def action_train(n_iters, training_data):
     with open('brain/action_meta.pkl','rb') as pickle_file:
          meta = pk.load(pickle_file)
     off = meta[2]
+    #off = -0.5
     current_loss = 0
     input_size = len(all_words)
     output_size = len(all_categories)
