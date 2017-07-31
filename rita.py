@@ -75,6 +75,8 @@ def send_message(recipient_id, message):
 @app.route('/test',methods=['GET', 'POST'])
 
 def test():
+    with open('dataset_new.json','r') as f:
+         dataset = json.load(f)
     form = InputForm()
     if form.validate_on_submit():
 
@@ -86,12 +88,16 @@ def test():
             log(reply)
             input_text = form.input_data.data
             #print(input_text)
+            dat = {"question":input_text,"answer":reply}
             form.input_data.data = ""
             return render_template('index.html',reply = reply["text"],form = form,input_text = input_text)
         else:
             reply = reply_predict(str(form.input_data.data))
             input_text = form.input_data.data
-           
+            dat = {"question":input_text,"answer":reply}
+            dataset.append(dat)
+            with open("dataset_new.json","w") as w:
+                 json.dump(dataset,w)
             form.input_data.data = ""
             return render_template('index.html',reply = reply,form = form,input_text = input_text)
     return render_template('index.html',form = form)
