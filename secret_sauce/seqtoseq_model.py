@@ -8,7 +8,7 @@ import pickle as pk
 use_cuda = torch.cuda.is_available()
 SOS_token = 0
 EOS_token = 1
-MAX_LENGTH = 10
+MAX_LENGTH = 80
 class Dataset:
     def __init__(self, name):
         self.name = name

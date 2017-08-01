@@ -2,12 +2,13 @@ import random
 class dsl(object):
     def __init__(self,intent):
         self.rep = {}
-
+        self.die(intent)
         self.website(intent)
         self.tinkerhub(intent)
         self.contact(intent)
         self.location(intent)
         self.principal(intent)
+        self.coin(intent)
     def generate(self):
         return self.rep
     def website(self,intent):
@@ -31,5 +32,11 @@ class dsl(object):
     def principal(self,intent):
         if intent == "principal":
             self.rep["text"] = random.choice(["check out RIT website","check this out:(www.rit.ac.in)"])
-            self.rep["title"] = "tinkerhub website"
-            self.rep["url"] = "www.ritcreativeteam.ml"
+            self.rep["title"] = "college website"
+            self.rep["url"] = "www.rit.ac.in"
+    def die(self,intent):
+        if intent == 'die':
+            self.rep["text"] = str(random.choice([1,2,3,4,5,6]))
+    def coin(self,intent):
+        if intent == 'coin':
+            self.rep["text"] = random.choice(["head","tail"])
