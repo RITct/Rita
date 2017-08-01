@@ -1,0 +1,4 @@
+pytorch
+Flask
+requests
+Flask-WTF

@@ -15,14 +15,14 @@
             }
             img{
                 width: 50px;
-                height: auto; 
-                float: left; 
+                height: auto;
+                float: left;
                 margin-right: 15px;
             }
             h2{
-                text-shadow: -2px 0 black; 
-                color: white; 
-                float: right; 
+                text-shadow: -2px 0 black;
+                color: white;
+                float: right;
                 display:inline-block;
             }
             .chat-area{
@@ -85,7 +85,7 @@
                 }
                 img{
                     width: 30px;
-                    height: auto; 
+                    height: auto;
                     margin-right: 10px;
                 }
             }
@@ -99,7 +99,7 @@
             <div class="row-fluid">
                 <div align="center">
                     <div style="display:inline-block;">
-                        <img src= {{ url_for('static', filename='RITctLogo.png') }} > 
+                        <img src= {{ url_for('static', filename='RITctLogo.png') }} >
                     </div>
                     <div style="display:inline-block;">
                         <h2 align="center">RITA
@@ -137,7 +137,7 @@
                         <form class="form-inline" action="" method = "post" name = "test">
                             <i class="icon fa fa-fw fa-3x fa-comments-o" aria-hidden="true"></i>
                             {{ form.hidden_tag() }}
-                                {{form.input_data(size=75)}}
+                                {{form.input_data(size=65 )}}
                         </form>
                     </div>
                 </div>
