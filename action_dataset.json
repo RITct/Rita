@@ -21,6 +21,14 @@
     },
     {
         "intent": "website",
+        "sentence": "how is RIT"
+    },
+    {
+        "intent": "website",
+        "sentence": "how is faculty in RIT"
+    },
+    {
+        "intent": "website",
         "sentence": "latest news about RIT"
     },
 
@@ -99,5 +107,37 @@
     {
         "intent": "tinkerhub",
         "sentence": "RIT creative team"
+    },
+    {
+        "intent": "die",
+        "sentence": "roll a die"
+    },
+    {
+        "intent": "die",
+        "sentence": "drop a die"
+    },
+    {
+        "intent": "die",
+        "sentence": "dice"
+    },
+    {
+        "intent": "die",
+        "sentence": "throw a die"
+    },
+    {
+        "intent": "coin",
+        "sentence": "flip a coin"
+    },
+    {
+        "intent": "coin",
+        "sentence": "heads or tails"
+    },
+    {
+        "intent": "coin",
+        "sentence": "throw a coin"
+    },
+    {
+        "intent": "coin",
+        "sentence": "head or tail"
     }
 ]

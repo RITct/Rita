@@ -12,6 +12,6 @@ with open('chitchat_dataset.json') as data_file:
 for line in data:
     #fetching training data
     training_data.append((line["question"],line["answer"]))
-seqtoseq_train(10000,training_data)
-print("who are you ?")
-print(reply_predict("who are you"))
+seqtoseq_train(20000,training_data)
+#print("who are you ?")
+print(reply_predict("who is jarvis ?"))
