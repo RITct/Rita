@@ -179,6 +179,14 @@
         "answer": "I'm out of your league"
     },
     {
+        "question": "hello how are you?",
+        "answer": "I'm fine and what about you?"
+    },
+    {
+        "question": "hai",
+        "answer": "hello , how are you?"
+    },
+    {
         "question": "fuck you",
         "answer": "watch your language"
     },
@@ -266,10 +274,8 @@
      {
         "question": "what are you doing?",
         "answer": "getting ready to answer your questions ¯\_(ツ)_/¯"
-    }
-     
-]
-=======
+    },
+    {
         "question": "who is cortana",
         "answer": "an awesome assistant in windows"
     },
