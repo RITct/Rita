@@ -4,8 +4,7 @@ import random
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
-
-
+import json
 class ANN(nn.Module):
 
     def __init__(self, input_size, hidden_size, output_size):
@@ -90,8 +89,10 @@ def train(output, input, ann,learning_rate=.005):
 #n_iters=100000
 def action_train(n_iters, training_data):
     all_categories, all_words = dataclean(training_data)
-    metadata = open('secret_sauce/action_meta.pkl', 'wb')
-    pk.dump([all_categories, all_words], metadata)
+    with open('brain/action_meta.pkl','rb') as pickle_file:
+         meta = pk.load(pickle_file)
+    off = meta[2]
+    #off = -0.5
     current_loss = 0
     input_size = len(all_words)
     output_size = len(all_categories)
@@ -99,27 +100,45 @@ def action_train(n_iters, training_data):
     ann = ANN(input_size, hidden_size, output_size)  # will initialize the computation graph
 
     for iter in range(1, n_iters+1):
+
         # training the network for n_iteration
         sentence, category_tensor, line_tensor = randomtrainingexample(training_data, all_categories, all_words)
         # fetching random training data
         output, loss = train(category_tensor, line_tensor, ann)
         # training the neural network to predict the intent accuratly
         current_loss += loss  # updating the error
-        if iter%100 == 0:
+
             # for each 50 iteration print the error,input,actual intent,guessed intent
            #top_v,top_i=output.data.topk(1)
-            k = 0
-            output_index = output.data.numpy()[0]
-
+        k = 0
+        output_index = output.data.numpy()[0]
+        top_v, _ = output.data.topk(1)
             # converting output tensor to integer
-            out_index = category_tensor.data.numpy()  # converting tensor datatype to integer
-            accuracy = 100-(loss*100)
-            if accuracy < 0:
-                accuracy = 0
-            print('accuracy=', round(accuracy), '%', 'input=', sentence, 'actual=', all_categories[out_index[0]],
-                  'guess=', all_categories[output_index])
+        out_index = category_tensor.data.numpy()  # converting tensor datatype to integer
+        accuracy = 100-(loss*100)
+        if accuracy < 0:
+            accuracy = 0
 
-    torch.save(ann, 'secret_sauce/ann.pt')
+        if iter%100 == 0:
+           print('accuracy=', round(accuracy), '%', 'input=', sentence, 'actual=', all_categories[out_index[0]],'guess=', all_categories[output_index])
+
+    torch.save(ann, 'brain/ann.pt')
+    valid_data = []
+    data_a = []
+    with open('chitchat_dataset.json',) as data_file:
+        data = json.load(data_file)
+    data = data[:25]
+    for line in data:
+        valid_data.append(line['question'])
+    for i in range(1000):
+        line = str(random.choice(valid_data))
+        out = evaluate(Variable(sentencetotensor(line, all_words)), ann)
+        top_v, _ = out.data.topk(1)
+        if top_v[0][0] > off:
+            off = top_v[0][0]
+    metadata = open('brain/action_meta.pkl', 'wb')
+    pk.dump([all_categories, all_words,off], metadata)
+
 
 def evaluate(line_tensor, ann):
 
@@ -128,16 +147,18 @@ def evaluate(line_tensor, ann):
     return output
 
 def action_predict(sentence):
-    ann = torch.load('secret_sauce/ann.pt')
-    with open('secret_sauce/action_meta.pkl','rb') as pickle_file:
+    ann = torch.load('brain/ann.pt')
+    with open('brain/action_meta.pkl','rb') as pickle_file:
          meta = pk.load(pickle_file)
     all_categories = meta[0]
     all_words = meta[1]
+    offset = meta[2]
     # function for evaluating user input sentence
     # print("input=",sentence)
     output = evaluate(Variable(sentencetotensor(sentence, all_words)), ann)
     top_v, top_i = output.data.topk(1)
     output_index = top_i[0][0]
-    if top_v[0][0] <= -0.1:
+    print(offset,top_v[0][0])
+    if top_v[0][0] <= offset:
         return "none"
     return all_categories[output_index]

@@ -6,7 +6,7 @@ import requests
 from flask import Flask, request,render_template, redirect
 from secret_sauce.action_models import action_predict
 from secret_sauce.seqtoseq_model import reply_predict
-from dsl import dsl
+from brain.dsl import dsl
 from templates.forms import InputForm
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '22334455'
@@ -22,7 +22,7 @@ def verify():
     return "go to http://127.0.0.1:5000/test", 200
 
 
-@app.route('/', methods=['POST'])
+@app.route('/fbbot', methods=['POST'])
 
 def main():
     data = request.get_json() #messages from users are fetched
@@ -75,6 +75,8 @@ def send_message(recipient_id, message):
 @app.route('/test',methods=['GET', 'POST'])
 
 def test():
+    with open('dataset_new.json','r') as f:
+         dataset = json.load(f)
     form = InputForm()
     if form.validate_on_submit():
 
@@ -86,12 +88,16 @@ def test():
             log(reply)
             input_text = form.input_data.data
             #print(input_text)
+            dat = {"question":input_text,"answer":reply}
             form.input_data.data = ""
             return render_template('index.html',reply = reply["text"],form = form,input_text = input_text)
         else:
             reply = reply_predict(str(form.input_data.data))
             input_text = form.input_data.data
-           
+            dat = {"question":input_text,"answer":reply}
+            dataset.append(dat)
+            with open("dataset_new.json","w") as w:
+                 json.dump(dataset,w)
             form.input_data.data = ""
             return render_template('index.html',reply = reply,form = form,input_text = input_text)
     return render_template('index.html',form = form)
