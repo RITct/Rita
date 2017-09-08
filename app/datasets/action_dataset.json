@@ -1,0 +1,154 @@
+[
+    {
+        "intent": "open",
+        "sentence": "open college website"
+    },
+    {
+        "intent": "open",
+        "sentence": "show me RIT website"
+    },
+    {
+        "intent": "open",
+        "sentence": "give me more information"
+    },
+    {
+        "intent": "who_or_what",
+        "sentence": "tell me about RIT"
+    },
+    {
+        "intent": "who_or_what",
+        "sentence": "RIT"
+    },
+    {
+        "intent": "how_is",
+        "sentence": "how is RIT"
+    },
+    {
+        "intent": "who_or_what",
+        "sentence": "what is RIT"
+    },
+    {
+        "intent": "how_is",
+        "sentence": "how is faculty in RIT"
+    },
+    {
+        "intent": "open",
+        "sentence": "latest news about RIT"
+    },
+    {
+        "intent": "contact",
+        "sentence": "connect me with RIT"
+    },
+    {
+        "intent": "contact",
+        "sentence": "connect"
+    },
+    {
+        "intent": "contact",
+        "sentence": "give me the phone number"
+    },
+    {
+        "intent": "contact",
+        "sentence": "i want to talk with authorities"
+    },
+    {
+        "intent": "contact",
+        "sentence": "how to contact"
+    },
+    {
+        "intent": "contact",
+        "sentence": "contact RIT"
+    },
+    {
+        "intent": "location",
+        "sentence": "how can i reach"
+    },
+    {
+        "intent": "location",
+        "sentence": "navigate me to RIT"
+    },
+    {
+        "intent": "location",
+        "sentence": "how to go there"
+    },
+    {
+        "intent": "who_or_what",
+        "sentence": "who is principal"
+    },
+    {
+        "intent": "who_or_what",
+        "sentence": "tell me about your principal"
+    },
+    {
+        "intent": "who_or_what",
+        "sentence": "who is the head of RIT"
+    },
+    {
+        "intent": "who_or_what",
+        "sentence": "who is the principal"
+    },
+    {
+        "intent": "who_or_what",
+        "sentence": "is there any programming club there"
+    },
+    {
+        "intent": "who_or_what",
+        "sentence": "what is tinkerhub-RIT"
+    },
+    {
+        "intent": "who_or_what",
+        "sentence": "what is tinkerhub"
+    },
+    {
+        "intent": "who_or_what",
+        "sentence": "what is RIT creative team"
+    },
+    {
+        "intent": "who_or_what",
+        "sentence": "tell me about tinkerhub"
+    },
+    {
+        "intent": "who_or_what",
+        "sentence": "tinkerhub"
+    },
+    {
+        "intent": "who_or_what",
+        "sentence": "RIT creative team"
+    },
+    {
+        "intent": "toss",
+        "sentence": "roll a die"
+    },
+    {
+        "intent": "toss",
+        "sentence": "drop a die"
+    },
+    {
+        "intent": "toss",
+        "sentence": "dice"
+    },
+    {
+        "intent": "toss",
+        "sentence": "throw a die"
+    },
+    {
+        "intent": "toss",
+        "sentence": "flip a coin"
+    },
+    {
+        "intent": "toss",
+        "sentence": "heads or tails"
+    },
+    {
+        "intent": "toss",
+        "sentence": "throw a coin"
+    },
+    {
+        "intent": "toss",
+        "sentence": "toss a coin"
+    },
+    {
+        "intent": "toss",
+        "sentence": "head or tail"
+    }
+]
